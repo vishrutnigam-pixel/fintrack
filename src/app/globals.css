@@ -1,26 +1,114 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  border-radius: 0px !important;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f9f8f3;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Ambient Subtle Motion */
+@keyframes ambientDrift {
+  0% { transform: translate(0px, 0px) scale(1); opacity: 0.45; }
+  50% { transform: translate(35px, -25px) scale(1.08); opacity: 0.65; }
+  100% { transform: translate(0px, 0px) scale(1); opacity: 0.45; }
+}
+
+.ambient-orb {
+  position: absolute;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  animation: ambientDrift 18s ease-in-out infinite;
+}
+
+/* Warm Editorial Glassmorphism */
+.editorial-glass {
+  background: rgba(249, 248, 243, 0.72) !important;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(221, 217, 201, 0.85);
+}
+
+.editorial-glass-card {
+  background: rgba(239, 236, 225, 0.65) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(221, 217, 201, 0.85);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.editorial-glass-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px -12px rgba(0, 0, 0, 0.08);
+  border-color: #000000;
+}
+
+/* Typography & Taglines */
+.br-editorial-title {
+  font-size: 3.2rem;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #000000;
+  margin: 0;
+}
+
+.br-tagline {
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #000000;
+  margin-bottom: 8px;
+}
+
+/* Interactive Elements */
+.br-black-button {
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 12px 20px;
+  border: 1px solid #000000;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.br-black-button:hover {
+  background-color: #1a1a1a;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.br-black-button:active {
+  transform: translateY(0px) scale(0.985);
+}
+
+.br-interactive-row {
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.br-interactive-row:hover {
+  background-color: rgba(239, 236, 225, 0.85) !important;
+}
+
+.tabular-nums {
+  font-family: "SF Mono", "Geist Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  font-variant-numeric: tabular-nums;
 }
