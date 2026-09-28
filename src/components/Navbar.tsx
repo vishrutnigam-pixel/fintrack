@@ -5,9 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { 
   Upload, Download, Sparkles, SplitSquareVertical, 
-  ChevronDown, Layers, SlidersHorizontal 
+  ChevronDown, SlidersHorizontal 
 } from "lucide-react";
-import DbStatusBadge from "@/components/DbStatusBadge";
 
 interface NavbarProps {
   onOpenIngest?: () => void;
@@ -262,31 +261,19 @@ export default function Navbar({
           </nav>
         </div>
 
-        {/* Right: Telemetry Badge + Forensic Suite Menu + Ingest */}
+        {/* Right: Forensic Tools Menu + Ingest */}
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "18px",
+            gap: "22px",
             fontSize: "10.5px",
             letterSpacing: "0.14em",
             textTransform: "uppercase",
             fontWeight: 800,
           }}
         >
-          {/* Live Neon Status */}
-          <DbStatusBadge />
-
-          <span
-            style={{
-              width: "1px",
-              height: "12px",
-              backgroundColor: "rgba(255, 255, 255, 0.14)",
-              display: "inline-block",
-            }}
-          />
-
-          {/* Consolidated Action Menu: "Forensic Suite" */}
+          {/* Consolidated Action Menu: "Forensic Tools" */}
           <div ref={toolsRef} style={{ position: "relative" }}>
             <button
               onClick={() => setIsToolsOpen((prev) => !prev)}

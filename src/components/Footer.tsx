@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import DbStatusBadge from "@/components/DbStatusBadge";
 
 export default function Footer() {
   return (
@@ -47,9 +48,17 @@ export default function Footer() {
         </div>
       </div>
 
-      <div style={{ maxWidth: "1360px", margin: "24px auto 0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "11px", color: "#555555" }}>
+      <div style={{ maxWidth: "1360px", margin: "24px auto 0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "12px", fontSize: "11px", color: "#555555" }}>
         <span>© 2026 FinTrack Intelligence Unit. All rights reserved.</span>
-        <span>CONFIDENTIAL • INTERNAL CLIENT-SIDE APPLICATION</span>
+
+        {/* Institutional Bottom Status Placement */}
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <DbStatusBadge />
+          <span style={{ color: "#333333" }}>|</span>
+          <span style={{ fontFamily: "monospace", color: "#555555" }}>DIRECT HTTPS-SQL</span>
+        </div>
+
+        <span style={{ letterSpacing: "0.05em" }}>CONFIDENTIAL • INTERNAL CLIENT-SIDE APPLICATION</span>
       </div>
     </footer>
   );

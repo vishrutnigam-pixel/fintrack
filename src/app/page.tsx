@@ -7,6 +7,7 @@ import {
   TrendingUp, Layers, Sparkles, SplitSquareVertical
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import DbStatusBadge from "@/components/DbStatusBadge";
 import IngestModal from "@/components/IngestModal";
 import AIAuditModal from "@/components/AIAuditModal";
 import DiffModal from "@/components/DiffModal";
@@ -737,9 +738,13 @@ export default function UnifiedDashboard() {
             <div style={{ fontSize: "16px", fontWeight: 900, textTransform: "uppercase" }}>
               FinTrack<span style={{ color: "#FFE600" }}>.</span>
             </div>
-            <p style={{ fontSize: "11px", color: "#888888", margin: "4px 0 0 0" }}>
-              Neon Serverless Postgres Architecture • Client-Side Volatile Memory Safe
-            </p>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginTop: "4px" }}>
+  <DbStatusBadge />
+  <span style={{ color: "#444444" }}>•</span>
+  <span style={{ fontSize: "11px", color: "#888888" }}>
+    Client-Side Volatile Memory Safe
+  </span>
+</div>
           </div>
           <div style={{ fontSize: "11px", color: "#666666" }}>
             RBI Circular DPSS.CO.PD.No.750/02.14.003/2020-21 Compliant
